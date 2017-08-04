@@ -1,0 +1,47 @@
+db:
+  host: 
+  user: 
+  password: 
+  database: 
+  table: 
+
+session:
+  dates:
+    - '2017-08-23'
+  hours:
+    - '8:00'
+    - '12:00'
+    - '18:00'
+  routes:
+    all: yes
+#    baseline:
+#      from: london
+#      to: edinburgh
+
+  
+logging:
+  version: 1
+  formatters:
+    simple:
+      format: '%(asctime)s %(levelname)s %(message)s'
+      datefmt: '%H:%M:%S'
+  handlers:
+    file_debug:
+      class: logging.handlers.RotatingFileHandler
+      formatter: simple
+      level: DEBUG
+      filename: debug_all.log
+      maxBytes: 10485760
+      backupCount: 3
+    file_info:
+      class: logging.handlers.RotatingFileHandler
+      formatter: simple
+      level: INFO
+      filename: info_all.log
+      maxBytes: 10485760
+      backupCount: 3
+  root:
+    level: INFO
+    handlers: [file_info]
+
+    
